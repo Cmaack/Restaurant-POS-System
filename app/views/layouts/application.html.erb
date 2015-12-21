@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RESTaurantApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+
+  <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "Restaurant.hlpr", '/', id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Admin", log_in_path %></li>
+            <li><%= link_to "Menu Items", menu_items_path %></li>
+            <li><%= link_to "Order Tickets", order_tickets_path %></li>
+            <li><%= link_to "Kitchen", '/order_tickets/show' %></li>
+            <li><%= link_to "Register", new_employee_path %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+<%= yield %>
+</div>
+
+<footer class="footer">
+  <small>
+    The <a href="https://github.com/Cmaack/Restaurant-POS-System">Restaurant.hlpr</a>
+    by <a href="https://github.com/Cmaack">Chris Maack</a>
+  </small>
+  <nav>
+    <ul>
+      <li><%= link_to "About",   '#' %></li>
+      <li><%= link_to "Contact", '#' %></li>
+      <li><a href="http://www.restaurantmagazine.com/">News</a></li>
+    </ul>
+  </nav>
+</footer>
+</body>
+</html>

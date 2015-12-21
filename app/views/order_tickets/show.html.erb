@@ -1,0 +1,18 @@
+<h1>Order Tickets</h1>
+<br>
+
+<div class="center-block">
+
+<h2>Current Orders</h2>
+
+<ul class="list-group">
+<% @order_tickets.each do |order_ticket| %>
+
+  <li class="list-group-item"><%= order_ticket.menu_item.name %> | <%= order_ticket.menu_item.description %> | </li>
+
+    <%= button_to "Order Complete", order_ticket_path(order_ticket), method: :delete, class: "btn btn-success btn-xs" %>
+
+<% end %>
+</ul>
+
+</div>

@@ -1,0 +1,24 @@
+<h3>Please enter a name for the party</h3>
+<nav>
+  <%= button_to "Order Tickets", order_tickets_path, method: :get %>
+  <%= button_to "Menu Items", menu_items_path, method: :get %>
+  <%= button_to "Home", root_path, method: :get %>
+</nav>
+
+<%= form_for @party do |f| %>
+  <%= f.label :name, 'Name ' %>
+  <%= f.text_field :name %>
+  <%= f.label :size, 'Size ' %>
+  <%= f.number_field :size %>
+  <%= f.submit %>
+<% end %>
+
+
+<h3>Parties currently dining with us</h3>
+<ul>
+  <% @parties.each do |party| %>
+    <li>
+      <%= party.name %> <%= button_to "Remove", party_path(party), method: :delete %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,126 @@
+<h1>Order Tickets</h1>
+<!-- <nav>
+  <%= button_to "Parties", parties_path, method: :get %>
+  <%= button_to "Menu Items", menu_items_path, method: :get %>
+  <%= button_to "Home", root_path, method: :get %>
+</nav> -->
+<div class="center jumbotron">
+  <div class="center-block">
+<h2>Create New Party</h2>
+<%= form_for @party do |f| %>
+  <%= f.label :name, 'Name ' %>
+  <%= f.text_field :name %>
+  <%= f.label :size, 'Size ' %>
+  <%= f.number_field :size %>
+  <%= f.submit class: 'btn btn-success' %>
+  <% end %>
+</div>
+<h2>Current Parties</h2>
+<div class="list-group">
+  <% @parties.each do |party| %>
+  <h2><%=party.name %></h2>
+  <h2><%= button_to "Remove", party_path(party), method: :delete, class: "btn btn-danger btn-xs" %></h2>
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Receipt?
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel"><%=party.name %></h4>
+      </div>
+      <div class="modal-body">
+          <table class='table-condensed'>
+            <% party.order_tickets.each do |order_ticket|%>
+            <tr>
+              <th>Party
+                <th>
+                  Item
+                </th>
+                <th>
+                  Price
+                </th>
+              </tr>
+              <tr>
+              <td>
+                <%=party.name %>
+              </td>
+              <td>
+                <%= order_ticket.menu_item.name%>
+              </td>
+              <td>
+                <%= order_ticket.menu_item.price%>
+              </td>
+              </tr>
+              <% end %>
+              <tr>
+                <th>
+                  Total
+                </th>
+                <th>
+                  15% tip
+                </th>
+                <th>
+                  20% tip
+                </th>
+                <th>
+                  25% tip
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  <%= party.checkout %>
+                </td>
+                <td>
+                  <%= party.tip1 %>
+                </td>
+                <td>
+                  <%= party.tip2 %>
+                </td>
+                <td>
+                  <%= party.tip3 %>
+                </td>
+              </tr>
+            </table>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Check Out</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <% end %>
+</div>
+</div>
+
+<div class="center jumbotron">
+  <div class="center-block">
+<h2>Create New Order</h2>
+<%= form_for @order_ticket do |f| %>
+  <%= f.collection_select(:menu_item_id, MenuItem.all, :id, :name) %>
+  <%= f.collection_select(:party_id, Party.all, :id, :name) %>
+  <%= f.number_field :fired %>
+  <%= f.submit class: 'btn btn-success' %>
+<% end %>
+</div>
+<div class="center-block">
+
+<h2>Current Orders</h2>
+<ul class="list-group">
+<% @order_tickets.each do |order_ticket| %>
+  <li class="list-group-item"><%= order_ticket.menu_item.name %> | <%= order_ticket.party.name %> | <%= button_to "Remove", order_ticket_path(order_ticket), method: :delete, class: "btn btn-danger btn-xs" %></li>
+<% end %>
+</ul>
+</div>
+</div>
+
+
+</div>
+</div>

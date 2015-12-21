@@ -1,0 +1,38 @@
+<!-- <%= stylesheet_link_tag    'employees', media: 'all', 'data-turbolinks-track' => true %> -->
+
+<h2>Welcome <%= current_employee.username %>! </h2>
+
+<%= button_to "Log Out", sessions_path, method: :delete, class: 'btn btn-danger'%>
+<br>
+<h3>These are current menu items</h3>
+<ul>
+  <% @menu_items.each do |menu_item| %>
+    <li>
+      <%= menu_item.name %> |  $<%= menu_item.price %><%= button_to "Remove", menu_item_path(menu_item), method: :delete, class: 'btn btn-danger btn-xs' %>
+    </li>
+  <% end %>
+</ul>
+<br>
+<h3>Add an Item to Menu</h3>
+<%= form_for @menu_item do |f| %>
+  <%= f.label :name, 'Name ' %>
+  <%= f.text_field :name %>
+  <%= f.label :description, 'Description ' %>
+  <%= f.text_field :description %>
+  <%= f.label :price, 'Price ' %>
+  <%= f.number_field :price, :step => 0.01 %>
+  <%= f.label :type, 'Course ' %>
+  <%= f.text_field :course %>
+  <%= f.submit %>
+<% end %>
+
+
+<%= button_to "View Order Tickets", order_tickets_path, method: :get %>
+<!--
+<ul>
+  <% @menu_items.each do |menu_item| %>
+    <li>
+      <%= menu_item.name %> <%= button_to "Remove", menu_item_path(menu_item), method: :delete %>
+    </li>
+  <% end %>
+</ul> -->
