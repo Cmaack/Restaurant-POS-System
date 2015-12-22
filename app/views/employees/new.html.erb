@@ -2,6 +2,8 @@
 
 <h2>Please create a <strong>User Name</strong> and <strong>Password</strong> for the new employee.</h2>
 
+  <div class="container">
+    
 <%= form_for @employee do |f| %>
 <%= f.label :username, 'User Name: ' %>
   <%= f.text_field :username %>
@@ -9,11 +11,4 @@
   <%= f.password_field :password %>
   <%= f.submit %>
 <% end %>
-
-
-<nav>
-  <%= button_to "Order Tickets", order_tickets_path, method: :get %>
-  <%= button_to "Menu Items", menu_items_path, method: :get %>
-  <%= button_to "Parties", parties_path, method: :get %>
-  <%= button_to "Home", root_path, method: :get %>
-</nav>
+</div>

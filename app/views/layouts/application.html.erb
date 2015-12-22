@@ -8,8 +8,30 @@
 
 </head>
 <body>
-
-  <header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle Navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "Restaurant.hlpr", '/', id: "logo" %>
+      </div> <!-- end div class="navbar-header" -->
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Admin", log_in_path %></li>
+          <li><%= link_to "Menu Items", menu_items_path %></li>
+          <li><%= link_to "Order Tickets", order_tickets_path %></li>
+          <li><%= link_to "Kitchen", '/order_tickets/show' %></li>
+          <li><%= link_to "Register", new_employee_path %></li>
+        </ul>
+      </div> <!-- end div class="collapse navbar-collapse" -->
+    </div> <!-- end div class="container" -->
+  </div> <!-- end div class="navbar navbar-default navbar-fixed-top" -->
+  <!-- <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
         <%= link_to "Restaurant.hlpr", '/', id: "logo" %>
         <nav>
@@ -23,10 +45,10 @@
           </ul>
         </nav>
       </div>
-    </header>
-    <div class="container">
+    </header> -->
+
 <%= yield %>
-</div>
+
 
 <footer class="footer">
   <small>

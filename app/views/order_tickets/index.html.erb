@@ -91,7 +91,9 @@
         </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Check Out</button>
+
+        <%= button_to "Checkout", order_tickets_path, :class => "btn btn-success btn-xs", :method => :get  %>
+
       </div>
     </div>
   </div>

@@ -10,7 +10,8 @@
 
   <li class="list-group-item"><%= order_ticket.menu_item.name %> | <%= order_ticket.menu_item.description %> | </li>
 
-    <%= button_to "Order Complete", order_ticket_path(order_ticket), method: :delete, class: "btn btn-success btn-xs" %>
+<%= button_to "Order Complete", order_tickets_path, :class => "btn btn-success btn-xs", :method => :get  %>
+    <!-- <%= button_to "Order Complete", order_ticket_path(order_ticket), method: :delete, class: "btn btn-success btn-xs" %> -->
 
 <% end %>
 </ul>
