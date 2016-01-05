@@ -99,3 +99,12 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+
+//media query for mobile
+@media screen and (min-width: 480px) {
+  input {
+    margin-top: 10px;
+    width: 30%;
+    height: 40px;
+  }
+}

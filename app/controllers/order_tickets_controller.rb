@@ -36,7 +36,7 @@ end
 private
 
 def order_tickets_params
-  params.require(:order_ticket).permit(:party_id, :menu_item_id)
+  params.require(:order_ticket).permit(:party_id, :menu_item_id, :notes, :fired)
 end
 
 end

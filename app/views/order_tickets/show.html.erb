@@ -2,16 +2,17 @@
 <br>
 
 <div class="center-block">
-
+<span id="countdown" class="timer"></span>
 <h2>Current Orders</h2>
 
 <ul class="list-group">
 <% @order_tickets.each do |order_ticket| %>
 
   <li class="list-group-item"><%= order_ticket.menu_item.name %> | <%= order_ticket.menu_item.description %> | </li>
-
+  <input type="hidden" name="order_ticket[fired]" value="1">
+        <%= f.submit "Ready" %>
+      <% end %>
 <%= button_to "Order Complete", order_tickets_path, :class => "btn btn-success btn-xs", :method => :get  %>
-    
 
 <% end %>
 </ul>

@@ -87,9 +87,9 @@
         </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-        <%= button_to "Checkout", order_tickets_path, :class => "btn btn-success btn-xs", :method => :get  %>
-
+<% party.order_tickets.each do |order_ticket|%>
+        <%= button_to "Checkout", order_ticket_path(order_ticket), method: :delete, class: "btn btn-danger btn-xs" %>
+<% end %>
       </div>
     </div>
   </div>
@@ -105,6 +105,9 @@
   <%= f.collection_select(:menu_item_id, MenuItem.all, :id, :name) %>
   <%= f.collection_select(:party_id, Party.all, :id, :name) %>
   <%= f.number_field :fired %>
+  <%= f.label "Notes" %><br>
+  <%= f.text_area :notes, :class => "form-control" %>
+
   <%= f.submit class: 'btn btn-success' %>
 <% end %>
 </div>
