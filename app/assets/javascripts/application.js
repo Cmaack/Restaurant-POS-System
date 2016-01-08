@@ -16,25 +16,24 @@
 //= require turbolinks
 //= require_tree .
 console.log("..loaded")
-var seconds = 300; //Variables for the code below
+var seconds = 300; 
 var countdownTimer;
-var colorChange; //sets up array of colors
+var colorChange;
 colorChange = ['#7ed473', '#fff194', '#fa8283']
 function secondPassed(){
-	var minutes = Math.floor(seconds/60); //takes the output of seconds/60 and makes rounds it down. 4.7 = 4, 3.7 = 3. (to keep the minutes displaying right)
-	var remainingSeconds = seconds % 60; //takes remainder of seconds/60 and displays it. so 270/60 = 4.5 this displays it as 30 so it becomes 4:30 instead of 4.5
-	if (remainingSeconds < 10) {  //if remaining seconds are less than 10 add a zero before the number. Displays numbers like 09 08 07 06
+	var minutes = Math.floor(seconds/60);
+	var remainingSeconds = seconds % 60;
+	if (remainingSeconds < 10) {
         remainingSeconds = "0" + remainingSeconds;
     }
-    document.getElementById('countdown').innerHTML = minutes + ":" + remainingSeconds; //displays time in the html page  5:06
+    document.getElementById('countdown').innerHTML = minutes + ":" + remainingSeconds;
 
    if (seconds == 0) {
-		clearInterval(countdownTimer);  //keeps value at zero once it hits zero. 0:00 will not go anymore
-
+		clearInterval(countdownTimer);
 		}
 };
 
-function changeColor(){ //this changes the background color based on the time that has elapsed
+function changeColor(){
 	if (seconds <= 300 && seconds > 90) {  //green between 5:00 - 1:30
 		document.body.style.background = colorChange[0];
 	}

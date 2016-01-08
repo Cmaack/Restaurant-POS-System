@@ -1,12 +1,23 @@
 <h2>Please create a <strong>User Name</strong> and <strong>Password</strong> for the new employee.</h2>
 
-  <div class="container">
+  <div class="container-fluid">
+<div class="row">
+
+<div class="col-md-6 col-md-offset-3">
+
 
 <%= form_for @employee do |f| %>
 <%= f.label :username, 'User Name: ' %>
   <%= f.text_field :username %>
   <%= f.label :password, 'Password: ' %>
   <%= f.password_field :password %>
-  <%= f.submit %>
+
+
+
+  <%= f.submit class: 'btn btn-success' %>
+
+
 <% end %>
+</div>
+</div>
 </div>

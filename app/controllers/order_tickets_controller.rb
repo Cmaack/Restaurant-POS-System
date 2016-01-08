@@ -17,9 +17,10 @@ def create
   redirect_to order_tickets_path
 end
 def show
-
+  @order_tickets = OrderTicket.all
   @order_tickets = OrderTicket.where(:fired => nil)
   @order_ticket = OrderTicket.new
+
   #parties
   @parties = Party.all
   @party = Party.new
