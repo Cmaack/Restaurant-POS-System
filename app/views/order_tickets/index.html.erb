@@ -106,8 +106,9 @@
   <%= f.collection_select(:party_id, Party.all, :id, :name) %>
   <%= f.label "Fired" %>
   <%= f.number_field :fired %>
-  <%= f.label "Notes" %><br>
+  <div class="row">
   <div class="col-md-4 col-md-offset-4">
+    <%= f.label "Notes" %>
   <%= f.text_area :notes, :class => "form-control" %>
 </div>
   <%= f.submit class: 'btn btn-success' %>

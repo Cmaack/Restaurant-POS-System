@@ -17,5 +17,29 @@
 
 <% end %>
 </ul>
-
 </div>
+
+
+<!-- <ul>
+  <% @order_tickets.each do |order_order_ticket| %>
+    <li>
+    <strong>Order #:</strong><%= order_ticket.number %> |
+    <strong>Cuisine: </strong><%= order_ticket.menu_item.name %> |
+    <strong>Menu Item: </strong><%= order_ticket.menu_item.description %> |
+ <br>
+    <% if order_ticket.created_at.to_time > 10.minutes.ago  %>
+      <div class="four column green"><%= order_ticket.created_at.to_time.strftime('%l:%M %p %Z')%></div>
+      <% elsif order_ticket.created_at.to_time < 10.minutes.ago && order_ticket.created_at.to_time > 20.minutes.ago %>
+      <div class="four column yellow"><%= order_ticket.created_at.to_time.strftime('%l:%M %p %Z')%></div>
+      <% elsif order_ticket.created_at.to_time < 20.minutes.ago %>
+      <div class="four column red"><%= order_ticket.created_at.to_time.strftime('%l:%M %p %Z')%></div>
+      <% end %>
+    <%= button_to "Edit Order", order_tickets_path(order_ticket.id), method: :get, class: 'waves-effect waves-light btn' %>
+    <%= button_to "Complete", order_tickets_path(order_ticket), method: :delete, class: 'waves-effect waves-light btn' %>
+
+  </li> <br>
+
+
+
+  <% end %>
+</ul> -->
